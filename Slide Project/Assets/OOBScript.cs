@@ -16,7 +16,6 @@ public class OOBScript : MonoBehaviour
     void Update()
     {
         Vector3 playerPos = playerPos = player.transform.position;
-        Debug.Log("Player is currently at: " + playerPos);
 
     }
 

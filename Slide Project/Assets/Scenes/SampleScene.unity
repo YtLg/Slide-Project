@@ -247,8 +247,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.01
-  m_LinearDrag: 0.7
+  m_Mass: 1
+  m_LinearDrag: 2
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -343,8 +343,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myRigidBody: {fileID: 1437437139}
   myCamera: {fileID: 519420031}
-  force: 20
-  maxForce: 30
+  force: 5
+  minForceX: 7
+  minForceY: 3
 --- !u!58 &1437437143
 CircleCollider2D:
   m_ObjectHideFlags: 0
