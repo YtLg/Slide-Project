@@ -226,8 +226,8 @@ GameObject:
   - component: {fileID: 1437437141}
   - component: {fileID: 1437437140}
   - component: {fileID: 1437437139}
-  - component: {fileID: 1437437142}
   - component: {fileID: 1437437143}
+  - component: {fileID: 1437437142}
   m_Layer: 0
   m_Name: PlayerObject
   m_TagString: Player
@@ -343,7 +343,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myRigidBody: {fileID: 1437437139}
   myCamera: {fileID: 519420031}
-  force: 5
+  force: 100
   minForceX: 7
   minForceY: 3
 --- !u!58 &1437437143

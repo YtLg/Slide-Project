@@ -23,6 +23,7 @@ public class Rigid : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
+
         //gets the current position of the mouse
         Vector3 screenMousePos = Input.mousePosition;
         Vector3 worldMousePos = myCamera.ScreenToWorldPoint(screenMousePos);
@@ -30,9 +31,11 @@ public class Rigid : MonoBehaviour
  
         if (Input.GetMouseButtonDown(0))
         {
+            myRigidBody.velocity = Vector3.zero;
+
             Vector3 dir = worldMousePos - transform.position;
             dir = dir.normalized;
-            myRigidBody.AddForce(dir * force * -1);
+            myRigidBody.AddForce(dir * force * -1,   ForceMode2D.Impulse);
         }
     }
 }
