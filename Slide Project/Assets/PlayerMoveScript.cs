@@ -9,12 +9,6 @@ public class Rigid : MonoBehaviour
     public Camera myCamera;
 
     public float force;
-    public float minForceX;
-    public float minForceY;
-
-    private float xForce;
-    private float yForce;
-
 
     // Start is called before the first frame update
     void Start(){
