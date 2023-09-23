@@ -5,7 +5,6 @@ using UnityEngine;
 public class OOBScript : MonoBehaviour
 {
     public GameObject player;
-    public Camera myCamera;
 
     // Start is called before the first frame update
     void Start()
