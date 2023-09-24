@@ -20,7 +20,11 @@ I'm also interested in implementing this same idea into a platformer setting, wh
 
 - [X] Add player movement
 - [X] Add Out of Bounds
-- [ ] Add Enemies
+- [X] Make something happen when player goes out of bounds
+- [X] Add Enemies
+- [X] Give Enemies tracking
+- [X] Create enemy spawner
+- [ ] Add Game Over Screen
 - [ ] Add powerups / ammo pickups
 - [ ] Add a title screen
 - [ ] Add a score counter + high score
