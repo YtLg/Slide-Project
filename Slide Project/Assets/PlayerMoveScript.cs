@@ -43,7 +43,7 @@ public class PlayerMoveScript : MonoBehaviour
     }
 
 
-    public bool lifeCheck()
+    public bool LifeCheck()
     {
         return isAlive;
     }

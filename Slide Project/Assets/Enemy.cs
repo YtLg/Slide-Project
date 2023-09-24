@@ -6,14 +6,13 @@ public class Enemy : MonoBehaviour
 {
 
     public GameObject player;
-    public Rigidbody2D myRigidbody;
-    
     public float speed;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        // gets the player object since you can't drag it onto a prefab
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame

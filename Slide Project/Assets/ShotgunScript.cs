@@ -21,7 +21,7 @@ public class ShotgunScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (pScript.lifeCheck() == true)
+        if (pScript.LifeCheck() == true)
         {
             Vector3 worldMousePos = logic.GetCorrPos();
             Vector3 corrDir = logic.GetCorrDir(worldMousePos, player.transform.position);
