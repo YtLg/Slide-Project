@@ -16,7 +16,7 @@ public class LogicScript : MonoBehaviour
 
     void OOBCheck()
     {
-        if (System.Math.Abs(player.transform.position.y) > 5 || System.Math.Abs(player.transform.position.x) > 13)
+        if (!(player.GetComponent<Renderer>().isVisible))
         {
             player.transform.position = new Vector3(player.transform.position.x * -1, player.transform.position.y * -1, 0f);
         }
