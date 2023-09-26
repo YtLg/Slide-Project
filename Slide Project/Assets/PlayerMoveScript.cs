@@ -29,16 +29,14 @@ public class PlayerMoveScript : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && isAlive == true)
         {
             myRigidBody.velocity = Vector3.zero;
-
-            Vector3 corrDir = logic.GetCorrDir(worldMousePos, transform.position);
-
-            myRigidBody.AddForce(corrDir * force * -1, ForceMode2D.Impulse);
+            ApplyKnockback(worldMousePos);
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         isAlive = false;
+        myRigidBody.velocity = Vector3.zero;
         Debug.Log("hit");
     }
 
@@ -46,5 +44,12 @@ public class PlayerMoveScript : MonoBehaviour
     public bool LifeCheck()
     {
         return isAlive;
+    }
+
+    void ApplyKnockback(Vector3 mousePos)
+    {
+        Vector3 corrDir = logic.GetCorrDir(mousePos, transform.position);
+
+        myRigidBody.AddForce(corrDir * force * -1, ForceMode2D.Impulse);
     }
 }
