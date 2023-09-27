@@ -7,7 +7,7 @@ public class EnemySpawnScript : MonoBehaviour
     public PlayerMoveScript pScript;
     public GameObject enemy;
     public float spawnRate;
-    public float counter;
+    float counter;
 
 
     // Start is called before the first frame update

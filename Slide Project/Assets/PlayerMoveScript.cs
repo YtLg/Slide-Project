@@ -40,7 +40,6 @@ public class PlayerMoveScript : MonoBehaviour
         Debug.Log("hit");
     }
 
-
     public bool LifeCheck()
     {
         return isAlive;
@@ -52,4 +51,6 @@ public class PlayerMoveScript : MonoBehaviour
 
         myRigidBody.AddForce(corrDir * force * -1, ForceMode2D.Impulse);
     }
+
+
 }

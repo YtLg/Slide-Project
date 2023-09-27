@@ -9,10 +9,12 @@ public class ShootScript : MonoBehaviour
     public GameObject preCBall;
     public float force;
     public PlayerMoveScript pScript;
+    public PowSpawnScript powScript;
 
     private void Start()
     {
         pScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMoveScript>();
+        powScript = GameObject.FindGameObjectWithTag("Powerup").GetComponent<PowSpawnScript>();
     }
 
     // Update is called once per frame
@@ -20,7 +22,12 @@ public class ShootScript : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            if (pScript.LifeCheck())
+            if (powScript.GetPow())
+            {
+                EmpShoot();
+            }
+
+            else if (pScript.LifeCheck())
             {
                 Shoot();
             }
@@ -33,5 +40,10 @@ public class ShootScript : MonoBehaviour
         Rigidbody2D rigidBall = ball.GetComponent<Rigidbody2D>();
         rigidBall.AddForce(cBSpawner.transform.up * force, ForceMode2D.Impulse);
 
+    }
+
+    void EmpShoot()
+    {
+        Debug.Log("Works");
     }
 }
