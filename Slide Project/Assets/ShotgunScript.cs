@@ -23,8 +23,7 @@ public class ShotgunScript : MonoBehaviour
     {
         if (pScript.LifeCheck() == true)
         {
-            Vector3 worldMousePos = logic.GetCorrPos();
-            Vector3 corrDir = logic.GetCorrDir(worldMousePos, player.transform.position);
+            Vector3 corrDir = logic.GetCorrDir(logic.GetCorrPos(), player.transform.position);
 
             // to rotate the shotgun to point at the cursor it needs to know the angle at which to point at.
             // rather than a direction, so you need to convert the vector into a angle for the object to rotate towards

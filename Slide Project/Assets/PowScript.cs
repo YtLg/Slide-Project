@@ -8,13 +8,13 @@ using UnityEngine;
 
 public class PowScript : MonoBehaviour
 {
-    public PowSpawnScript powScript;
+    public PowSpawnScript powSScript;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        powScript = GameObject.FindGameObjectWithTag("Powerup").GetComponent<PowSpawnScript>();
+        powSScript = GameObject.FindGameObjectWithTag("Powerup").GetComponent<PowSpawnScript>();
 
     }
 
@@ -23,7 +23,7 @@ public class PowScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("Pow up collected");
-            powScript.SetPow(true);
+            powSScript.SetPow(true);
             Destroy(gameObject);
         }
     }

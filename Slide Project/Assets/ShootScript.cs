@@ -8,56 +8,55 @@ public class ShootScript : MonoBehaviour
     public GameObject cBSpawner;
     public GameObject preCBall;
     public float force;
-    public PlayerMoveScript pScript;
-    public PowSpawnScript powScript;
+
+    LogicScript logic;
+    PlayerMoveScript pScript;
+    PowSpawnScript powSScript;
+
+
+
+    private int x;
 
     private void Start()
     {
         pScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMoveScript>();
-        powScript = GameObject.FindGameObjectWithTag("Powerup").GetComponent<PowSpawnScript>();
+        powSScript = GameObject.FindGameObjectWithTag("Powerup").GetComponent<PowSpawnScript>();
+        logic = GameObject.FindGameObjectWithTag("logic").GetComponent<LogicScript>();
     }
-
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
-        {
-            if (powScript.GetPow())
+            if (Input.GetMouseButtonDown(0))
             {
-                EmpShoot();
-            }
+                if (powSScript.GetPow())
+                {
+                    EmpShoot();
+                }
 
-            else if (pScript.LifeCheck())
-            {
-                Shoot();
+                else if (pScript.LifeCheck())
+                {
+                    Shoot();
+                }
             }
         }
-    }
 
-    void Shoot()
-    {
-        GameObject ball = Instantiate(preCBall, cBSpawner.transform.position, cBSpawner.transform.rotation);
-        Rigidbody2D rigidBall = ball.GetComponent<Rigidbody2D>();
-        rigidBall.AddForce(cBSpawner.transform.up * force, ForceMode2D.Impulse);
+        void Shoot()
+        {
+            GameObject ball = Instantiate(preCBall, cBSpawner.transform.position, cBSpawner.transform.rotation);
+            Rigidbody2D rigidBall = ball.GetComponent<Rigidbody2D>();
+            rigidBall.AddForce(cBSpawner.transform.up * force, ForceMode2D.Impulse);
 
-    }
+        }
 
-    void EmpShoot()
-    {
-        Debug.Log("Works");
-        GameObject ball1 = Instantiate(preCBall, cBSpawner.transform.position, cBSpawner.transform.rotation);
-        GameObject ball2 = Instantiate(preCBall, cBSpawner.transform.position, cBSpawner.transform.rotation);
-        GameObject ball3 = Instantiate(preCBall, cBSpawner.transform.position, cBSpawner.transform.rotation);
+        void EmpShoot()
+        {   
+            for (x = 0; x < 3; x++)
+            {
+                Debug.Log("Shot no." + x);
+                GameObject ball = Instantiate(preCBall, cBSpawner.transform.position, cBSpawner.transform.rotation);
+                Rigidbody2D rigidBall = ball.GetComponent<Rigidbody2D>();
+                rigidBall.AddForce(cBSpawner.transform.up * force, ForceMode2D.Impulse);
+            }
 
-
-        Rigidbody2D rigidBall1 = ball1.GetComponent<Rigidbody2D>();
-        Rigidbody2D rigidBall2 = ball2.GetComponent<Rigidbody2D>();
-        Rigidbody2D rigidBall3 = ball3.GetComponent<Rigidbody2D>();
-
-        rigidBall1.AddForce(cBSpawner.transform.up * force, ForceMode2D.Impulse);
-        rigidBall2.AddForce(cBSpawner.transform.up * force, ForceMode2D.Impulse);
-        rigidBall3.AddForce(cBSpawner.transform.up * force, ForceMode2D.Impulse);
-
-
-    }
+        }
 }

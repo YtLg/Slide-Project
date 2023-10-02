@@ -169,9 +169,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cBSpawner: {fileID: 222361753}
   preCBall: {fileID: 7779769592800512541, guid: 86e6e1867f6627848b5aedcc03277614, type: 3}
-  force: 4
+  force: 5
   pScript: {fileID: 0}
-  powScript: {fileID: 0}
+  powSScript: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,7 +608,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pScript: {fileID: 0}
   powerUp: {fileID: 4788100487756936636, guid: cb4633e31fb571b45b39e8ceaa23891d, type: 3}
-  spawnRate: 0.1
+  spawnRate: 20
   powTimer: 5
 --- !u!4 &1976750207
 Transform:
