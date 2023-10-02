@@ -21,7 +21,7 @@ public class PlayerMoveScript : MonoBehaviour
     }
 
     //using FixedUpdate because I am applying physics to the object
-    void FixedUpdate(){
+    void Update(){
 
         //gets the current position of the mouse
         Vector3 worldMousePos = logic.GetCorrPos();

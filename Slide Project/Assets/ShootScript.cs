@@ -45,5 +45,19 @@ public class ShootScript : MonoBehaviour
     void EmpShoot()
     {
         Debug.Log("Works");
+        GameObject ball1 = Instantiate(preCBall, cBSpawner.transform.position, cBSpawner.transform.rotation);
+        GameObject ball2 = Instantiate(preCBall, cBSpawner.transform.position, cBSpawner.transform.rotation);
+        GameObject ball3 = Instantiate(preCBall, cBSpawner.transform.position, cBSpawner.transform.rotation);
+
+
+        Rigidbody2D rigidBall1 = ball1.GetComponent<Rigidbody2D>();
+        Rigidbody2D rigidBall2 = ball2.GetComponent<Rigidbody2D>();
+        Rigidbody2D rigidBall3 = ball3.GetComponent<Rigidbody2D>();
+
+        rigidBall1.AddForce(cBSpawner.transform.up * force, ForceMode2D.Impulse);
+        rigidBall2.AddForce(cBSpawner.transform.up * force, ForceMode2D.Impulse);
+        rigidBall3.AddForce(cBSpawner.transform.up * force, ForceMode2D.Impulse);
+
+
     }
 }

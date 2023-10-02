@@ -7,6 +7,7 @@ TagManager:
   - logic
   - Enemy
   - Ball
+  - Powerup
   layers:
   - Default
   - TransparentFX
