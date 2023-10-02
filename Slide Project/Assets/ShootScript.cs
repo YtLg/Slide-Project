@@ -9,15 +9,14 @@ public class ShootScript : MonoBehaviour
     public GameObject preCBall;
     public float force;
 
+
     PlayerMoveScript pScript;
     PowSpawnScript powSScript;
-
-
-
-    private int x;
+    ShotgunScript gunScript;
 
     void Start()
     {
+        gunScript = GameObject.FindGameObjectWithTag("Gun").GetComponent<ShotgunScript>();
         pScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMoveScript>();
         powSScript = GameObject.FindGameObjectWithTag("Powerup").GetComponent<PowSpawnScript>();
     }
@@ -40,20 +39,18 @@ public class ShootScript : MonoBehaviour
 
         void Shoot()
         {
-            GameObject ball = Instantiate(preCBall, cBSpawner.transform.position, Quaternion.identity);
-            Rigidbody2D rigidBall = ball.GetComponent<Rigidbody2D>();
-            rigidBall.AddForce(cBSpawner.transform.up * force, ForceMode2D.Impulse);
-
+            GameObject ball = Instantiate(preCBall, cBSpawner.transform.position, Quaternion.Euler(0, 0, gunScript.GetRotation()));
         }
 
         void EmpShoot()
         {
-            for (x = 0; x < 3 ; x++)
+            for (int i = 0; i < 3; i++)
             {
-                Debug.Log("fired");
-                GameObject ball = Instantiate(preCBall, cBSpawner.transform.position, Quaternion.identity);
-                ball.transform.Rotate(Random.Range(-10, 10), Random.Range(-10, 10), 0);
-                
-            }
+                GameObject ball = Instantiate(preCBall, cBSpawner.transform.position, cBSpawner.transform.rotation);
+                Rigidbody2D rigidBall = ball.GetComponent<Rigidbody2D>();
+                ball.transform.Rotate(0, 0, Random.Range(-15, 15));
+
         }
+    }
+
 }

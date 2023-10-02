@@ -11,6 +11,9 @@ public class ShotgunScript : MonoBehaviour
     LogicScript logic;
     PlayerMoveScript pScript;
 
+
+    float radToDegDir;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,11 +32,17 @@ public class ShotgunScript : MonoBehaviour
             // rather than a direction, so you need to convert the vector into a angle for the object to rotate towards
             // Atan2 converts to radians, so you need to conver that into Degrees with Rad2Deg
             // have to -90 deg because of Unity's degree system starts differently resulting in an incorrect angle
-            float radToDegDir = Mathf.Atan2(corrDir.y, corrDir.x) * Mathf.Rad2Deg - 90f;
+            radToDegDir = Mathf.Atan2(corrDir.y, corrDir.x) * Mathf.Rad2Deg - 90f;
 
             //to rotate it to the correct angle
             transform.rotation = Quaternion.Euler(0, 0, radToDegDir);
         }
 
+    }
+
+
+    public float GetRotation()
+    {
+        return radToDegDir;
     }
 }
