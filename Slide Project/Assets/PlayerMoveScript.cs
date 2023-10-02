@@ -9,7 +9,7 @@ public class PlayerMoveScript : MonoBehaviour
     public Camera myCamera;
     public float force;
 
-    public LogicScript logic;
+    LogicScript logic;
 
     bool isAlive;
 
@@ -49,7 +49,7 @@ public class PlayerMoveScript : MonoBehaviour
     {
         Vector3 corrDir = logic.GetCorrDir(mousePos, transform.position);
 
-        myRigidBody.AddForce(corrDir * force * -1, ForceMode2D.Impulse);
+        myRigidBody.AddForce(corrDir * -1 * force, ForceMode2D.Impulse);
     }
 
 

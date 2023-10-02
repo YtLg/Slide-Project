@@ -13,7 +13,7 @@ public class PowSpawnScript : MonoBehaviour
     public float powTimer;
     float count2;
 
-    bool hasPow = false;
+    public bool hasPow = false;
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +42,7 @@ public class PowSpawnScript : MonoBehaviour
 
     void PowUpTime()
     {
-        if (GetPow()){
+        if (GetPow() == true){
             if (count2 < powTimer)
             {
                 count2 += Time.deltaTime;
@@ -51,6 +51,7 @@ public class PowSpawnScript : MonoBehaviour
             else
             {
                 SetPow(false);
+                count2 = 0;
             }
 
         }
